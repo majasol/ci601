@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #FFF7F3;
+    background-color: #f9ecee;
 }
 
 h1,
@@ -42,6 +42,77 @@ body {
     flex-grow: 1;
 }
 
+/* ---------header---------- */
+.header {
+    display: flex;
+    justify-content: space-between; /* This will push the items to opposite ends */
+    align-items: center; /* This vertically aligns the items in the middle */
+    padding: 10px 20px; /* Add some padding for spacing */
+}
+
+.profile-dropdown {
+    position: relative; /* Needed for the dropdown positioning */
+}
+
+#profile-img {
+    width: 40px; /* Adjust size of profile image */
+    height: 40px;
+    cursor: pointer; /* Make it clear the image is clickable */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block; /* Show the dropdown when hovering over the profile */
+}
+
+/* ---------Profile dropdown----------- */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile-dropdown img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
 /* -----------Nav-bar------------ */
 
@@ -52,8 +123,11 @@ body {
     align-items: center;
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #FAD0C4;
-    width: 100%;
+    background-color: #ecc5cb;
+    width: 90%;
+    margin: 20px auto; /* Center the navbar and add space from top and bottom */
+    border-radius: 15px; /* Add rounded corners to the navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -66,6 +140,8 @@ body {
     padding: 14px 16px;
     transition: 0.3s;
     text-align: center;
+    border-radius: 10px; /* Curved corners for the buttons */
+    margin: 0 5px;
 }
 
 /* Change background color of buttons on hover */
@@ -75,7 +151,7 @@ body {
 
 /* Create an active/current tablink class */
 .tab button.active {
-    background-color: #E6B2BA;
+    background-color: #e6b2ba;
 }
 
 /* Style the tab content */
@@ -94,40 +170,58 @@ body {
     background-color: #ddd;
 }
 
-/* Footer */
+/* -------Footer-------- */
 footer {
     position: fixed;
-    left: 0;
+    left: 50%;
     bottom: 0;
-    width: 100%;
-    background-color: #E6B2BA;
+    transform: translateX(-50%);
+    width: 90%;
+    background-color: #ecc5cb;
     color: white;
     text-align: center;
     border: none;
-    padding: 5px 10px;
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 14px;
-    cursor: pointer;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+footer img {
+    width: 24px;  /* Set the width of the icons */
+    height: 24px; /* Optionally set the height to maintain aspect ratio */
+    object-fit: contain; /* Ensure the icons don't get stretched */
+}
+
+
+footer a, .dropup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .dropbtn {
-    background-color: #E6B2BA;
+    background-color: #ecc5cb;
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
+    cursor: pointer;
 }
 
 /* The container <div> - needed to position the dropup content */
 .dropup {
     position: relative;
-    display: inline-block;
 }
 
 /* Dropup content (Hidden by Default) */
 .dropup-content {
     display: none;
     position: absolute;
-    bottom: 50px;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -156,3 +250,5 @@ footer {
 .dropup:hover .dropbtn {
     background-color: #2980B9;
 }
+
+

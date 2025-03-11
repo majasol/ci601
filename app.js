@@ -20,6 +20,19 @@ const config = {
     issuerBaseURL: process.env.ISSUER,
 }; 
 
+app.get("/items", (req, res) => {
+    const query = 'SELECT * FROM items'; // Replace with your actual table name and columns
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error("Error fetching items from database:", err);
+            res.status(500).send("Error fetching items");
+        } else {
+            res.json(results); // Return the data as JSON
+        }
+    });
+});
+
+
 app.set("view engine", "ejs");
 
 app.use(express.static(__dirname));
@@ -28,13 +41,17 @@ app.use(express.urlencoded({ extended: true }));
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
 
-// req.isAuthenticated is provided from the auth router
 app.get("/", (req, res) => {
-  console.log(req.oidc.isAuthenticated());
-  const isAuthenticated = req.oidc.isAuthenticated();
-  const response = isAuthenticated ? req.oidc.user : "Not logged in";
-  res.send(response);
+    const isAuthenticated = req.oidc.isAuthenticated();
+    const user = req.oidc.user; // Get user info if logged in
+    res.sendFile(path.join(__dirname, 'views', 'index.html')); // Serve the static HTML file
 });
+
+app.get("/auth-status", (req, res) => {
+    const isAuthenticated = req.oidc.isAuthenticated();
+    res.json({ isAuthenticated, user: req.oidc.user || null });
+});
+
 
 
 // ** Static Pages **

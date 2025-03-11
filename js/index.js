@@ -1,3 +1,36 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const profileImg = document.getElementById("profile-img");
+    const dropdownMenu = document.getElementById("dropdown-menu");
+
+    profileImg.addEventListener("click", function () {
+        dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!profileImg.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.style.display = "none";
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Fetch the authentication status from the server
+    fetch('/auth-status')
+        .then(response => response.json())
+        .then(data => {
+            const authAction = document.getElementById("auth-action");
+
+            if (data.isAuthenticated) {
+                authAction.textContent = 'Logout';
+                authAction.setAttribute("href", "/logout");
+            } else {
+                authAction.textContent = 'Login';
+                authAction.setAttribute("href", "/login");
+            }
+        })
+        .catch(error => console.error('Error fetching authentication status:', error));
+});
+
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
 
@@ -27,6 +60,38 @@ window.onload = function () {
     defaultTab.classList.add("active");
     defaultTab.setAttribute("aria-selected", "true");
 };
+
+// Fetch data from the server
+fetch('/items')
+.then(response => response.json())
+.then(data => {
+    const container = document.getElementById('items-container');
+    let htmlContent = '';
+
+    // Loop through the items and add them to the container
+    data.forEach((item, index) => {
+        if (index % 2 === 0) {
+            htmlContent += '<div class="item-column">';
+        }
+
+        htmlContent += `
+            <div class="item">
+                <img src="${item.imageUrl}" alt="${item.name}" />
+                <p>${item.name}</p>
+                <p>${item.description}</p>
+            </div>
+        `;
+
+        if (index % 2 !== 0 || index === data.length - 1) {
+            htmlContent += '</div>'; // Close the column
+        }
+    });
+
+    container.innerHTML = htmlContent; // Insert the items into the container
+})
+.catch(error => {
+    console.error('Error fetching items:', error);
+});
 
 function handleSelection() {
     var selection = document.getElementById("footerDropdown").value;

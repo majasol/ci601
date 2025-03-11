@@ -5,13 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/main.css">
-    
+
     <title>Wardrobe Manager</title>
 </head>
 
 <body>
     <div id="wrapper">
-        <h1>Wardrobe Manager</h1>
+        <div class="header">
+            <h1>WM</h1>
+
+            <div class="profile-dropdown">
+                <img src="/img/profile.png" alt="Profile" id="profile-img">
+                <div class="dropdown-content" id="dropdown-menu">
+                    <a href="#" id="auth-action">Login</a> <!-- Will change to Logout if logged in -->
+                </div>
+            </div>
+        </div>
 
         <div class="tab">
             <button class="tablinks active" onclick="openCity(event, 'Items')">Items</button>
@@ -20,10 +29,7 @@
         </div>
 
         <div id="Items" class="tabcontent">
-            <h3>Items</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis eligendi aspernatur repellendus est rem
-                deleniti quod! Laudantium doloribus sint sequi magni! Laborum laboriosam enim ducimus fuga quas placeat,
-                aut illo.</p>
+            <div class="items-container" id="items-container"></div> <!-- Container for items -->
         </div>
 
         <div id="Outfits" class="tabcontent">
