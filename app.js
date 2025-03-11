@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 require("dotenv").config();
-const db = require("./server/db.js");
 const path = require("path");
+const db = require("./server/db.js");
 const { auth } = require("express-openid-connect");
 const port = process.env.PORT;
 
@@ -18,10 +18,11 @@ const config = {
     baseURL: process.env.BASEURL,
     clientID: process.env.CLIENTID,
     issuerBaseURL: process.env.ISSUER,
-};
+}; 
 
 app.set("view engine", "ejs");
 
+app.use(express.static(__dirname));
 app.use(express.urlencoded({ extended: true }));
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
@@ -37,8 +38,8 @@ app.get("/", (req, res) => {
 
 
 // ** Static Pages **
-//app.get("/", (req, res) => res.sendFile(path.join(__dirname, "views", "index.html")));
+app.get("/index", (req, res) => res.sendFile(path.join(__dirname, "views", "index.html")));
 
 app.listen(port, () => {
     console.log('Server started on port 3306');
-});
+});  

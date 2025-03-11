@@ -1,11 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/style/main.css">
+    
+    <title>Wardrobe Manager</title>
 </head>
+
 <body>
-    <h2>Hello World!</h2>
+    <div id="wrapper">
+        <h1>Wardrobe Manager</h1>
+
+        <div class="tab">
+            <button class="tablinks active" onclick="openCity(event, 'Items')">Items</button>
+            <button class="tablinks" onclick="openCity(event, 'Outfits')">Outfits</button>
+            <button class="tablinks" onclick="openCity(event, 'Collections')">Collections</button>
+        </div>
+
+        <div id="Items" class="tabcontent">
+            <h3>Items</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis eligendi aspernatur repellendus est rem
+                deleniti quod! Laudantium doloribus sint sequi magni! Laborum laboriosam enim ducimus fuga quas placeat,
+                aut illo.</p>
+        </div>
+
+        <div id="Outfits" class="tabcontent">
+            <h3>Outfits</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium est sit consequuntur perferendis
+                placeat pariatur, non maxime eveniet laborum ullam explicabo repudiandae modi quod expedita nobis ipsam
+                beatae aliquam delectus.</p>
+        </div>
+
+        <div id="Collections" class="tabcontent">
+            <h3>Collections</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum culpa deserunt quisquam vero voluptatum
+                consectetur rerum quaerat quia, corrupti voluptatibus quis, tenetur obcaecati dolorum aliquid eos
+                excepturi accusamus! Non, suscipit!</p>
+        </div>
+    </div>
+
+    <footer>
+        <a href="index.html">
+            <img src="img/wardrobe.png" alt="Wardrobe">
+        </a>
+
+        <div class="dropup">
+            <button class="dropbtn">
+                <img src="img/plus.png" alt="plus">
+            </button>
+            <div class="dropup-content">
+                <a href="#">Add item</a>
+                <a href="style.html">Create Outfit</a>
+                <a href="#">Create Collection</a>
+            </div>
+        </div>
+
+        <a href="calendar.html">
+            <img src="img/calendar.png" alt="calendar">
+        </a>
+    </footer>
+
+    <script src="/js/index.js"></script>
 </body>
+
 </html>
