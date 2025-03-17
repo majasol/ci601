@@ -63,18 +63,18 @@ window.onload = function () {
 
 // Fetch data from the server
 fetch('/items')
-.then(response => response.json())
-.then(data => {
-    const container = document.getElementById('items-container');
-    let htmlContent = '';
+    .then(response => response.json())
+    .then(data => {
+        const container = document.getElementById('items-container');
+        container.innerHTML = ''; // Clear existing items
 
-    // Loop through the items and add them to the container
-    data.forEach((item, index) => {
-        if (index % 2 === 0) {
-            htmlContent += '<div class="item-column">';
-        }
+        let leftColumn = document.createElement('div');
+        let rightColumn = document.createElement('div');
+        leftColumn.classList.add('item-column');
+        rightColumn.classList.add('item-column');
 
-        htmlContent += `
+        data.forEach((item, index) => {
+            let itemHTML = `
             <div class="item">
                 <img src="${item.imageUrl}" alt="${item.name}" />
                 <p>${item.name}</p>
@@ -82,16 +82,101 @@ fetch('/items')
             </div>
         `;
 
-        if (index % 2 !== 0 || index === data.length - 1) {
-            htmlContent += '</div>'; // Close the column
-        }
+            if (index % 2 === 0) {
+                leftColumn.innerHTML += itemHTML;
+            } else {
+                rightColumn.innerHTML += itemHTML;
+            }
+        });
+
+        container.appendChild(leftColumn);
+        container.appendChild(rightColumn);
+    })
+    .catch(error => {
+        console.error('Error fetching items:', error);
     });
 
-    container.innerHTML = htmlContent; // Insert the items into the container
-})
-.catch(error => {
-    console.error('Error fetching items:', error);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const addItemBtn = document.getElementById("add-item-btn");
+    const modal = document.getElementById("upload-form");
+    const closeModal = modal.querySelector(".close");
+
+    // Show modal when "Add Item" is clicked
+    addItemBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        modal.style.display = "flex"; // Change from "block" to "flex" for centering
+    });
+
+    // Hide modal when close button is clicked
+    closeModal.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Close modal when clicking outside of the form
+    window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
 });
+
+// Get the modal and the button to open it
+const modal = document.getElementById("upload-form");
+const btn = document.getElementById("add-item-btn");
+const span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the "Add item" button, open the modal
+btn.onclick = function () {
+    modal.style.display = "block";
+};
+
+// When the user clicks on the close button, close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
+// Handle form submission
+document.getElementById("item-form").onsubmit = function (event) {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("name", document.getElementById("item-name").value);
+    formData.append("image", document.getElementById("item-image").files[0]);
+    formData.append("category", document.getElementById("item-category").value);
+    formData.append("sub_category", document.getElementById("item-sub-category").value);
+    formData.append("color", document.getElementById("item-color").value);
+    formData.append("times_used", document.getElementById("item-times-used").value);
+    formData.append("cost", document.getElementById("item-cost").value);
+
+    fetch('/add-item', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Item added successfully!");
+            modal.style.display = "none"; // Close modal after submission
+            // You can also refresh the items list or perform other UI updates here
+        } else {
+            alert("Error adding item");
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("Error adding item");
+    });
+};
+
+
+
 
 function handleSelection() {
     var selection = document.getElementById("footerDropdown").value;
