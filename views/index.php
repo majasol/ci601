@@ -1,0 +1,117 @@
+<?php
+// Ensure session is started only once
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/main.css">
+
+    <title>Wardrobe Manager</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="header">
+            <h1>WM</h1>
+
+            <div class="profile-dropdown">
+                <img src="/img/profile.png" alt="Profile" id="profile-img">
+                <div class="dropdown-content" id="dropdown-menu">
+                    <a href="#" id="auth-action">Login</a> <!-- Will change to Logout if logged in -->
+                </div>
+            </div>
+        </div>
+
+        <div class="tab">
+            <button class="tablinks active" onclick="openCity(event, 'Items')">Items</button>
+            <button class="tablinks" onclick="openCity(event, 'Outfits')">Outfits</button>
+            <button class="tablinks" onclick="openCity(event, 'Collections')">Collections</button>
+        </div>
+
+        <div id="Items" class="tabcontent">
+            <div class="items-container" id="items-container"></div> <!-- Container for items -->
+        </div>
+
+        <div id="Outfits" class="tabcontent">
+            <h3>Outfits</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium est sit consequuntur perferendis
+                placeat pariatur, non maxime eveniet laborum ullam explicabo repudiandae modi quod expedita nobis ipsam
+                beatae aliquam delectus.</p>
+        </div>
+
+        <div id="Collections" class="tabcontent">
+            <h3>Collections</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum culpa deserunt quisquam vero voluptatum
+                consectetur rerum quaerat quia, corrupti voluptatibus quis, tenetur obcaecati dolorum aliquid eos
+                excepturi accusamus! Non, suscipit!</p>
+        </div>
+    </div>
+
+
+
+    <footer>
+        <a href="index.html">
+            <img src="img/wardrobe.png" alt="Wardrobe">
+        </a>
+
+        <div class="dropup">
+            <button class="dropbtn">
+                <img src="img/plus.png" alt="plus">
+            </button>
+            <div class="dropup-content">
+                <a href="#" id="add-item-btn">Add item</a>
+                <a href="style.php">Create Outfit</a>
+                <a href="#">Create Collection</a>
+            </div>
+        </div>
+
+        <a href="calendar.html">
+            <img src="img/calendar.png" alt="calendar">
+        </a>
+    </footer>
+
+    <!-- Hidden Upload Form -->
+    <div id="upload-form" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Item</h2>
+            <form id="item-form" enctype="multipart/form-data">
+                <label for="item-name">Item Name:</label>
+                <input type="text" id="item-name" name="name" required>
+
+                <label for="item-image">Upload Image:</label>
+                <input type="file" id="item-image" name="image" accept="image/*" required>
+
+                <label for="item-category">Category:</label>
+                <input type="text" id="item-category" name="category" required>
+
+                <label for="item-sub-category">Sub-Category:</label>
+                <input type="text" id="item-sub-category" name="sub_category">
+
+                <label for="item-color">Color:</label>
+                <input type="text" id="item-color" name="color">
+
+                <label for="item-times-used">Times Used:</label>
+                <input type="number" id="item-times-used" name="times_used" value="0" required>
+
+                <label for="item-cost">Cost:</label>
+                <input type="number" id="item-cost" name="cost" required>
+
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="/js/index.js"></script>
+</body>
+
+</html>

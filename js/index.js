@@ -62,7 +62,7 @@ window.onload = function () {
 };
 
 // Fetch data from the server
-fetch('/items')
+fetch('/get_items.php')  // Change from /items to /get_items.php
     .then(response => response.json())
     .then(data => {
         const container = document.getElementById('items-container');
@@ -76,9 +76,8 @@ fetch('/items')
         data.forEach((item, index) => {
             let itemHTML = `
             <div class="item">
-                <img src="${item.imageUrl}" alt="${item.name}" />
+                <img src="${item.image_url}" alt="${item.name}" />
                 <p>${item.name}</p>
-                <p>${item.description}</p>
             </div>
         `;
 
@@ -95,6 +94,13 @@ fetch('/items')
     .catch(error => {
         console.error('Error fetching items:', error);
     });
+
+fetch('/add_item.php', {
+    method: 'POST',
+    body: formData
+})
+
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -120,6 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
 
 // Get the modal and the button to open it
 const modal = document.getElementById("upload-form");
@@ -160,19 +168,19 @@ document.getElementById("item-form").onsubmit = function (event) {
         method: 'POST',
         body: formData
     })
-    .then(response => {
-        if (response.ok) {
-            alert("Item added successfully!");
-            modal.style.display = "none"; // Close modal after submission
-            // You can also refresh the items list or perform other UI updates here
-        } else {
+        .then(response => {
+            if (response.ok) {
+                alert("Item added successfully!");
+                modal.style.display = "none"; // Close modal after submission
+                // You can also refresh the items list or perform other UI updates here
+            } else {
+                alert("Error adding item");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
             alert("Error adding item");
-        }
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        alert("Error adding item");
-    });
+        });
 };
 
 
