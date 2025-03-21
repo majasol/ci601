@@ -19,7 +19,8 @@ $data = [
     "client_id" => $client_id,
     "client_secret" => $client_secret,
     "code" => $code,
-    "redirect_uri" => $redirect_uri
+    "redirect_uri" => $redirect_uri,
+    "scope" => "openid profile email"
 ];
 
 $options = [
@@ -33,20 +34,26 @@ $options = [
 $context = stream_context_create($options);
 $response = file_get_contents($token_url, false, $context);
 
-if (!$response) {
-    die("Error fetching the access token.");
+if ($response === false) {
+    $error = error_get_last(); // Get last PHP error
+    die("Error fetching access token: " . $error['message']);
 }
 
 $response_data = json_decode($response, true);
+
+if (isset($response_data['error'])) {
+    die("Auth0 Error: " . $response_data['error_description']);
+}
 
 // Check if we got the access token and ID token
 if (isset($response_data['access_token']) && isset($response_data['id_token'])) {
     $_SESSION['access_token'] = $response_data['access_token'];
     $_SESSION['id_token'] = $response_data['id_token'];
-    
-    // Make sure session is stored properly
-    // Debugging session variables
-    var_dump($_SESSION); 
+
+    // Debugging: Check if session variables are set
+    echo "<pre>";
+    var_dump($_SESSION);  // Or use print_r($_SESSION);
+    echo "</pre>";
 
     // Redirect to homepage after successful login
     header("Location: index.php");
