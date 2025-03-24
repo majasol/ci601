@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 session_start();
 
 $client_id = "Em8HvlnX0e1YFSrE9dW3vp7cgymtmOtT";
