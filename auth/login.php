@@ -1,4 +1,5 @@
 <?php
+session_start();
 $client_id = "Em8HvlnX0e1YFSrE9dW3vp7cgymtmOtT";
 $redirect_uri = "http://localhost/auth0-callback.php";
 $domain = "dev-meaqbljgqatv3dvg.uk.auth0.com";
@@ -12,3 +13,4 @@ $auth_url = "https://$domain/authorize?" . http_build_query([
 
 header("Location: $auth_url");
 exit;
+?>

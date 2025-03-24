@@ -56,9 +56,18 @@ if (isset($response_data['access_token']) && isset($response_data['id_token'])) 
     var_dump($_SESSION);  // Or use print_r($_SESSION);
     echo "</pre>";
 
+    // Debugging: Check if we got the correct response from Auth0
+echo "<pre>";
+print_r($response_data); // See what Auth0 is returning
+echo "</pre>";
+exit; // Stop execution to check the output
+
+
     // Redirect to homepage after successful login
     header("Location: index.php");
     exit;
 }
 
 echo "Failed to authenticate.";
+
+?>
