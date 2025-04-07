@@ -34,4 +34,3 @@ if ($payload['iss'] !== $issuer) {
 }
 
 echo json_encode(["message" => "Access granted", "user" => $payload]);
-?>

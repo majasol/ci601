@@ -5,7 +5,6 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +24,11 @@ if (session_status() === PHP_SESSION_NONE) {
             <div class="profile-dropdown">
                 <img src="/img/profile.png" alt="Profile" id="profile-img">
                 <div class="dropdown-content" id="dropdown-menu">
-                    <a href="#" id="auth-action">Login</a> <!-- Will change to Logout if logged in -->
+                    <?php if (isset($_SESSION['user'])): ?>
+                        <a href="/logout.php">Logout</a>
+                    <?php else: ?>
+                        <a href="/index.php">Login</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -55,10 +58,8 @@ if (session_status() === PHP_SESSION_NONE) {
         </div>
     </div>
 
-
-
     <footer>
-        <a href="index.html">
+        <a href="home.php">
             <img src="img/wardrobe.png" alt="Wardrobe">
         </a>
 
@@ -73,43 +74,10 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
         </div>
 
-        <a href="calendar.html">
+        <a href="calendar.php">
             <img src="img/calendar.png" alt="calendar">
         </a>
     </footer>
-
-    <!-- Hidden Upload Form -->
-    <div id="upload-form" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Add Item</h2>
-            <form id="item-form" enctype="multipart/form-data">
-                <label for="item-name">Item Name:</label>
-                <input type="text" id="item-name" name="name" required>
-
-                <label for="item-image">Upload Image:</label>
-                <input type="file" id="item-image" name="image" accept="image/*" required>
-
-                <label for="item-category">Category:</label>
-                <input type="text" id="item-category" name="category" required>
-
-                <label for="item-sub-category">Sub-Category:</label>
-                <input type="text" id="item-sub-category" name="sub_category">
-
-                <label for="item-color">Color:</label>
-                <input type="text" id="item-color" name="color">
-
-                <label for="item-times-used">Times Used:</label>
-                <input type="number" id="item-times-used" name="times_used" value="0" required>
-
-                <label for="item-cost">Cost:</label>
-                <input type="number" id="item-cost" name="cost" required>
-
-                <button type="submit">Upload</button>
-            </form>
-        </div>
-    </div>
-
 
     <script src="/js/index.js"></script>
 </body>

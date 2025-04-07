@@ -15,4 +15,4 @@ return [
     'AUTH0_COOKIE_SECRET' => $_ENV['AUTH0_COOKIE_SECRET'],
     'AUTH0_BASE_URL' => $_ENV['AUTH0_BASE_URL']
 ];
-?>
+
