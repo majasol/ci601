@@ -4,6 +4,7 @@ require_once __DIR__ . '/vendor/autoload.php'; // Load Composer dependencies
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+// Return the config as an associative array
 return [
     'DB_HOST' => $_ENV['DB_HOST'],
     'DB_USER' => $_ENV['DB_USER'],
@@ -15,4 +16,3 @@ return [
     'AUTH0_COOKIE_SECRET' => $_ENV['AUTH0_COOKIE_SECRET'],
     'AUTH0_BASE_URL' => $_ENV['AUTH0_BASE_URL']
 ];
-

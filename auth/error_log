@@ -1,0 +1,217 @@
+[23-Apr-2025 14:10:15 UTC] PHP Warning:  require_once(config.php): Failed to open stream: No such file or directory in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 2
+[23-Apr-2025 14:10:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'config.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/ms2360/public_html/ci601/ci601/auth/callback.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 2
+[23-Apr-2025 14:10:41 UTC] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 36
+[23-Apr-2025 14:10:41 UTC] PHP Warning:  file_get_contents(https://dev-meaqbljgqatv3dvg.uk.auth0.com/oauth/token): Failed to open stream: no suitable wrapper could be found in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 36
+[23-Apr-2025 14:10:42 UTC] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 36
+[23-Apr-2025 14:10:42 UTC] PHP Warning:  file_get_contents(https://dev-meaqbljgqatv3dvg.uk.auth0.com/oauth/token): Failed to open stream: no suitable wrapper could be found in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 36
+[23-Apr-2025 14:22:17 UTC] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 37
+[23-Apr-2025 14:22:17 UTC] PHP Warning:  file_get_contents(https://dev-meaqbljgqatv3dvg.uk.auth0.com/oauth/token): Failed to open stream: no suitable wrapper could be found in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 37
+[23-Apr-2025 14:22:18 UTC] PHP Warning:  file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 37
+[23-Apr-2025 14:22:18 UTC] PHP Warning:  file_get_contents(https://dev-meaqbljgqatv3dvg.uk.auth0.com/oauth/token): Failed to open stream: no suitable wrapper could be found in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 37
+[23-Apr-2025 14:27:31 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ms2360/public_html/ci601/ci601/auth/callback.php:55) in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 60
+[23-Apr-2025 18:13:04 UTC] PHP Warning:  require_once(vendor/autoload.php): Failed to open stream: No such file or directory in /home/ms2360/public_html/ci601/ci601/auth/login.php on line 2
+[23-Apr-2025 18:13:04 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/ms2360/public_html/ci601/ci601/auth/login.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/auth/login.php on line 2
+[23-Apr-2025 18:52:36 UTC] PHP Warning:  require_once(/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ms2360/public_html/ci601/ci601/auth/login.php on line 2
+[23-Apr-2025 18:52:36 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/ms2360/public_html/ci601/ci601/auth/login.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/auth/login.php on line 2
+[23-Apr-2025 18:52:37 UTC] PHP Warning:  require_once(/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ms2360/public_html/ci601/ci601/auth/login.php on line 2
+[23-Apr-2025 18:52:37 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/ms2360/public_html/ci601/ci601/auth/login.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/auth/login.php on line 2
+[23-Apr-2025 18:52:40 UTC] PHP Warning:  require_once(/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/ms2360/public_html/ci601/ci601/auth/login.php on line 2
+[23-Apr-2025 18:52:40 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/ms2360/public_html/ci601/ci601/auth/login.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/auth/login.php on line 2
+[23-Apr-2025 18:53:08 UTC] PHP Fatal error:  Uncaught Dotenv\Exception\InvalidPathException: Unable to read any of the environment file(s) at [/home/ms2360/public_html/ci601/ci601/auth/.env]. in /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Store/FileStore.php:68
+Stack trace:
+#0 /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Dotenv.php(222): Dotenv\Store\FileStore->read()
+#1 /home/ms2360/public_html/ci601/ci601/auth/login.php(8): Dotenv\Dotenv->load()
+#2 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Store/FileStore.php on line 68
+[23-Apr-2025 19:24:53 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /home/ms2360/public_html/ci601/ci601/auth/login.php on line 12
+[23-Apr-2025 19:24:53 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ms2360/public_html/ci601/ci601/auth/login.php:6) in /home/ms2360/public_html/ci601/ci601/vendor/auth0/auth0-php/src/Store/CookieStore.php on line 498
+[23-Apr-2025 21:27:29 UTC] Session started
+[23-Apr-2025 21:27:29 UTC] Environment loaded
+[23-Apr-2025 21:27:29 UTC] Auth0 object created
+[23-Apr-2025 21:27:29 UTC] Now attempting redirect to login...
+[23-Apr-2025 21:27:29 UTC] This line should NOT be reached if redirect works
+[23-Apr-2025 21:27:33 UTC] Session started
+[23-Apr-2025 21:27:33 UTC] Environment loaded
+[23-Apr-2025 21:27:33 UTC] Auth0 object created
+[23-Apr-2025 21:27:33 UTC] Now attempting redirect to login...
+[23-Apr-2025 21:27:33 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:24:45 UTC] Session started
+[24-Apr-2025 12:24:45 UTC] Environment loaded
+[24-Apr-2025 12:24:45 UTC] Auth0 object created
+[24-Apr-2025 12:24:45 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:24:45 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:24:45 UTC] Session started
+[24-Apr-2025 12:24:45 UTC] Environment loaded
+[24-Apr-2025 12:24:45 UTC] Auth0 object created
+[24-Apr-2025 12:24:45 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:24:45 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:24:45 UTC] Session started
+[24-Apr-2025 12:24:45 UTC] Environment loaded
+[24-Apr-2025 12:24:45 UTC] Auth0 object created
+[24-Apr-2025 12:24:45 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:24:45 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:24:49 UTC] Session started
+[24-Apr-2025 12:24:49 UTC] Environment loaded
+[24-Apr-2025 12:24:49 UTC] Auth0 object created
+[24-Apr-2025 12:24:49 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:24:49 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:25:02 UTC] Session started
+[24-Apr-2025 12:25:02 UTC] Environment loaded
+[24-Apr-2025 12:25:02 UTC] Auth0 object created
+[24-Apr-2025 12:25:02 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:25:02 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:28:09 UTC] Session started
+[24-Apr-2025 12:28:09 UTC] Environment loaded
+[24-Apr-2025 12:28:09 UTC] Auth0 object created
+[24-Apr-2025 12:28:09 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:28:09 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:28:14 UTC] Session started
+[24-Apr-2025 12:28:14 UTC] Environment loaded
+[24-Apr-2025 12:28:14 UTC] Auth0 object created
+[24-Apr-2025 12:28:14 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:28:14 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:33:39 UTC] Session started
+[24-Apr-2025 12:33:39 UTC] Environment loaded
+[24-Apr-2025 12:33:39 UTC] Auth0 object created
+[24-Apr-2025 12:33:39 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:33:39 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:33:41 UTC] Session started
+[24-Apr-2025 12:33:41 UTC] Environment loaded
+[24-Apr-2025 12:33:41 UTC] Auth0 object created
+[24-Apr-2025 12:33:41 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:33:41 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:33:44 UTC] Session started
+[24-Apr-2025 12:33:44 UTC] Environment loaded
+[24-Apr-2025 12:33:44 UTC] Auth0 object created
+[24-Apr-2025 12:33:44 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:33:44 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 12:33:46 UTC] Session started
+[24-Apr-2025 12:33:46 UTC] Environment loaded
+[24-Apr-2025 12:33:46 UTC] Auth0 object created
+[24-Apr-2025 12:33:46 UTC] Now attempting redirect to login...
+[24-Apr-2025 12:33:46 UTC] This line should NOT be reached if redirect works
+[24-Apr-2025 16:22:46 UTC] Session started
+[24-Apr-2025 16:22:46 UTC] Environment loaded
+[24-Apr-2025 16:22:46 UTC] Auth0 object created
+[24-Apr-2025 16:22:46 UTC] Now attempting redirect to login...
+[24-Apr-2025 16:22:50 UTC] PHP Warning:  require_once(vendor/autoload.php): Failed to open stream: No such file or directory in /home/ms2360/public_html/ci601/ci601/auth/logout.php on line 5
+[24-Apr-2025 16:22:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/ms2360/public_html/ci601/ci601/auth/logout.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/auth/logout.php on line 5
+[24-Apr-2025 16:34:21 UTC] PHP Fatal error:  Uncaught Dotenv\Exception\InvalidPathException: Unable to read any of the environment file(s) at [/home/ms2360/public_html/ci601/ci601/auth/.env]. in /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Store/FileStore.php:68
+Stack trace:
+#0 /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Dotenv.php(222): Dotenv\Store\FileStore->read()
+#1 /home/ms2360/public_html/ci601/ci601/auth/logout.php(10): Dotenv\Dotenv->load()
+#2 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Store/FileStore.php on line 68
+[24-Apr-2025 16:34:22 UTC] PHP Fatal error:  Uncaught Dotenv\Exception\InvalidPathException: Unable to read any of the environment file(s) at [/home/ms2360/public_html/ci601/ci601/auth/.env]. in /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Store/FileStore.php:68
+Stack trace:
+#0 /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Dotenv.php(222): Dotenv\Store\FileStore->read()
+#1 /home/ms2360/public_html/ci601/ci601/auth/logout.php(10): Dotenv\Dotenv->load()
+#2 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Store/FileStore.php on line 68
+[24-Apr-2025 16:34:41 UTC] Session started
+[24-Apr-2025 16:34:41 UTC] Environment loaded
+[24-Apr-2025 16:34:41 UTC] Auth0 object created
+[24-Apr-2025 16:34:41 UTC] Now attempting redirect to login...
+[24-Apr-2025 16:34:44 UTC] PHP Fatal error:  Uncaught Dotenv\Exception\InvalidPathException: Unable to read any of the environment file(s) at [/home/ms2360/public_html/ci601/ci601/auth/.env]. in /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Store/FileStore.php:68
+Stack trace:
+#0 /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Dotenv.php(222): Dotenv\Store\FileStore->read()
+#1 /home/ms2360/public_html/ci601/ci601/auth/logout.php(10): Dotenv\Dotenv->load()
+#2 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Store/FileStore.php on line 68
+[24-Apr-2025 16:34:47 UTC] Session started
+[24-Apr-2025 16:34:47 UTC] Environment loaded
+[24-Apr-2025 16:34:47 UTC] Auth0 object created
+[24-Apr-2025 16:34:47 UTC] Now attempting redirect to login...
+[25-Apr-2025 12:25:46 UTC] Session started
+[25-Apr-2025 12:25:46 UTC] Environment loaded
+[25-Apr-2025 12:25:46 UTC] Auth0 object created
+[25-Apr-2025 12:25:46 UTC] Now attempting redirect to login...
+[25-Apr-2025 12:46:17 UTC] PHP Fatal error:  Uncaught Dotenv\Exception\InvalidPathException: Unable to read any of the environment file(s) at [/home/ms2360/public_html/ci601/ci601/auth/.env]. in /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Store/FileStore.php:68
+Stack trace:
+#0 /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Dotenv.php(222): Dotenv\Store\FileStore->read()
+#1 /home/ms2360/public_html/ci601/ci601/auth/logout.php(10): Dotenv\Dotenv->load()
+#2 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/vendor/vlucas/phpdotenv/src/Store/FileStore.php on line 68
+[25-Apr-2025 13:15:29 UTC] PHP Fatal error:  Uncaught Error: Class "Dotenv\Dotenv\Dotenv" not found in /home/ms2360/public_html/ci601/ci601/auth/logout.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/auth/logout.php on line 9
+[25-Apr-2025 13:15:29 UTC] PHP Fatal error:  Uncaught Error: Class "Dotenv\Dotenv\Dotenv" not found in /home/ms2360/public_html/ci601/ci601/auth/logout.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/ms2360/public_html/ci601/ci601/auth/logout.php on line 9
+[25-Apr-2025 13:21:41 UTC] Session started
+[25-Apr-2025 13:21:41 UTC] Environment loaded
+[25-Apr-2025 13:21:41 UTC] Auth0 object created
+[25-Apr-2025 13:21:41 UTC] Now attempting redirect to login...
+[25-Apr-2025 13:44:06 UTC] Session started
+[25-Apr-2025 13:44:06 UTC] Environment loaded
+[25-Apr-2025 13:44:06 UTC] Auth0 object created
+[25-Apr-2025 13:44:06 UTC] Now attempting redirect to login...
+[25-Apr-2025 14:05:38 UTC] Session started
+[25-Apr-2025 14:05:38 UTC] Environment loaded
+[25-Apr-2025 14:05:38 UTC] Auth0 object created
+[25-Apr-2025 14:05:38 UTC] Now attempting redirect to login...
+[25-Apr-2025 14:05:39 UTC] Code: mcjR8pZyQ8cYItiJ6aAWk4GMFajXCufWuoDNsOQuVE80m
+[25-Apr-2025 14:05:39 UTC] State: 705f02d1bb6f7068584c588d3f8d3640
+[25-Apr-2025 14:05:39 UTC] PHP Warning:  Undefined array key "auth0_state" in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 26
+[25-Apr-2025 16:06:13 UTC] Session started
+[25-Apr-2025 16:06:13 UTC] Environment loaded
+[25-Apr-2025 16:06:13 UTC] Auth0 object created
+[25-Apr-2025 16:06:13 UTC] Now attempting redirect to login...
+[25-Apr-2025 16:06:14 UTC] Code: tm9KbCnOAMfjUgMijbfVU8ME3rWi7flb6DQfsVEi-7dyo
+[25-Apr-2025 16:06:14 UTC] State: 9c940a9d93d5edaef80775bef32be5fb
+[25-Apr-2025 16:06:14 UTC] PHP Warning:  Undefined array key "auth0_state" in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 26
+[25-Apr-2025 16:08:22 UTC] Code: tm9KbCnOAMfjUgMijbfVU8ME3rWi7flb6DQfsVEi-7dyo
+[25-Apr-2025 16:08:22 UTC] State: 9c940a9d93d5edaef80775bef32be5fb
+[25-Apr-2025 16:08:22 UTC] PHP Warning:  Undefined array key "auth0_state" in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 26
+[25-Apr-2025 19:20:50 UTC] Code: tm9KbCnOAMfjUgMijbfVU8ME3rWi7flb6DQfsVEi-7dyo
+[25-Apr-2025 19:20:50 UTC] State: 9c940a9d93d5edaef80775bef32be5fb
+[25-Apr-2025 19:20:50 UTC] PHP Warning:  Undefined array key "auth0_state" in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 26
+[25-Apr-2025 19:20:51 UTC] Code: tm9KbCnOAMfjUgMijbfVU8ME3rWi7flb6DQfsVEi-7dyo
+[25-Apr-2025 19:20:51 UTC] State: 9c940a9d93d5edaef80775bef32be5fb
+[25-Apr-2025 19:20:51 UTC] PHP Warning:  Undefined array key "auth0_state" in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 26
+[25-Apr-2025 19:20:52 UTC] Code: tm9KbCnOAMfjUgMijbfVU8ME3rWi7flb6DQfsVEi-7dyo
+[25-Apr-2025 19:20:52 UTC] State: 9c940a9d93d5edaef80775bef32be5fb
+[25-Apr-2025 19:20:52 UTC] PHP Warning:  Undefined array key "auth0_state" in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 26
+[25-Apr-2025 19:20:54 UTC] Code: tm9KbCnOAMfjUgMijbfVU8ME3rWi7flb6DQfsVEi-7dyo
+[25-Apr-2025 19:20:54 UTC] State: 9c940a9d93d5edaef80775bef32be5fb
+[25-Apr-2025 19:20:54 UTC] PHP Warning:  Undefined array key "auth0_state" in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 26
+[25-Apr-2025 19:20:59 UTC] Session started
+[25-Apr-2025 19:20:59 UTC] Environment loaded
+[25-Apr-2025 19:20:59 UTC] Generated state: 94f3e34a759f750e2d4a3d94432e0b8a
+[25-Apr-2025 19:20:59 UTC] Auth0 object created
+[25-Apr-2025 19:20:59 UTC] Now attempting redirect to login...
+[25-Apr-2025 19:21:00 UTC] Code: PothzCy4KAlYUUbnc50UhQSGhPZM9EmggkxDm0NUhKaAl
+[25-Apr-2025 19:21:00 UTC] State: f29f88c07e200dbcd1e4eb38b4d8f250
+[26-Apr-2025 15:11:10 UTC] Session started
+[26-Apr-2025 15:11:10 UTC] Environment loaded
+[26-Apr-2025 15:11:10 UTC] Generated state: 206b39d74fe62dcec992b9f34dd73688
+[26-Apr-2025 15:11:10 UTC] Auth0 object created
+[26-Apr-2025 15:11:10 UTC] Now attempting redirect to login...
+[26-Apr-2025 15:11:11 UTC] Code: rw94mKuWSHrBp6vQHq2WHV5w6SBxnUHtb_t8Me_e4WD4z
+[26-Apr-2025 15:11:11 UTC] State: 55cf92fbabf66a4608b0dc4180a728de
+[26-Apr-2025 15:33:14 UTC] Login failed. Could not retrieve user.
+[26-Apr-2025 15:33:21 UTC] Login failed. Could not retrieve user.
+[26-Apr-2025 15:33:57 UTC] Login failed. Could not retrieve user.
+[26-Apr-2025 15:34:03 UTC] Login failed. Could not retrieve user.
+[30-Apr-2025 20:56:46 UTC] PHP Warning:  Undefined variable $internalUserIdFromDb in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 48
+[30-Apr-2025 20:56:46 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/ms2360/public_html/ci601/ci601/auth/callback.php:48) in /home/ms2360/public_html/ci601/ci601/auth/callback.php on line 52

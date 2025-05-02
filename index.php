@@ -1,8 +1,5 @@
 <?php
-// Start session if not already started
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once '/backend/session.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -45,4 +42,3 @@ if ($session) {
     header('Location: /views/home.php'); // Redirect to home.php after successful login
     exit;
 }
-?>

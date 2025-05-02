@@ -1,202 +1,202 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const tabButtons = document.querySelectorAll(".tablinks");
+    const tabContents = document.querySelectorAll(".tabcontent");
+
+    tabButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const targetId = button.getAttribute("data-tab-target");
+
+            tabContents.forEach(tab => {
+                tab.style.display = "none";
+            });
+
+            tabButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+            document.getElementById(targetId).style.display = "block";
+            button.classList.add("active");
+
+            // Load content if needed
+            if (targetId === "Outfits") {
+                loadOutfits();
+            }
+        });
+    });
+
+    const defaultTab = document.querySelector(".tablinks[data-tab-target='Items']");
+    if (defaultTab) defaultTab.click();
+
     const profileImg = document.getElementById("profile-img");
     const dropdownMenu = document.getElementById("dropdown-menu");
 
-    profileImg.addEventListener("click", function () {
+    // 🔽 Profile dropdown toggle
+    profileImg?.addEventListener("click", () => {
         dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
     });
 
-    document.addEventListener("click", function (event) {
-        if (!profileImg.contains(event.target) && !dropdownMenu.contains(event.target)) {
+    document.addEventListener("click", (event) => {
+        if (!profileImg?.contains(event.target) && !dropdownMenu?.contains(event.target)) {
             dropdownMenu.style.display = "none";
         }
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Fetch the authentication status from the server
-    fetch('/auth-status')
-        .then(response => response.json())
+    // 🔐 Auth status
+    fetch('../auth/auth-status.php')
+        .then(res => res.json())
         .then(data => {
             const authAction = document.getElementById("auth-action");
-
-            if (data.isAuthenticated) {
-                authAction.textContent = 'Logout';
-                authAction.setAttribute("href", "/logout");
-            } else {
-                authAction.textContent = 'Login';
-                authAction.setAttribute("href", "/login");
+            if (authAction) {
+                if (data.isAuthenticated) {
+                    authAction.textContent = 'Logout';
+                    authAction.href = "../auth/logout.php";
+                } else {
+                    authAction.textContent = 'Login';
+                    authAction.href = "../auth/login.php";
+                }
             }
         })
-        .catch(error => console.error('Error fetching authentication status:', error));
-});
+        .catch(err => console.error("Auth status error:", err));
 
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Remove "active" class from all tab buttons
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].classList.remove("active");
-        tablinks[i].setAttribute("aria-selected", "false");
-    }
-
-    // Show the selected tab and set the active button
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.classList.add("active");
-    evt.currentTarget.setAttribute("aria-selected", "true");
-}
-
-// Ensure the "Items" tab is shown by default when the page loads
-window.onload = function () {
-    document.getElementById("Items").style.display = "block";
-    var defaultTab = document.getElementsByClassName("tablinks")[0]; // First tab (Items)
-    defaultTab.classList.add("active");
-    defaultTab.setAttribute("aria-selected", "true");
-};
-
-// Fetch data from the server
-fetch('/get_items.php')  // Change from /items to /get_items.php
-    .then(response => response.json())
-    .then(data => {
-        const container = document.getElementById('items-container');
-        container.innerHTML = ''; // Clear existing items
-
-        let leftColumn = document.createElement('div');
-        let rightColumn = document.createElement('div');
-        leftColumn.classList.add('item-column');
-        rightColumn.classList.add('item-column');
-
-        data.forEach((item, index) => {
-            let itemHTML = `
-            <div class="item">
-                <img src="${item.image_url}" alt="${item.name}" />
-                <p>${item.name}</p>
-            </div>
-        `;
-
-            if (index % 2 === 0) {
-                leftColumn.innerHTML += itemHTML;
-            } else {
-                rightColumn.innerHTML += itemHTML;
-            }
-        });
-
-        container.appendChild(leftColumn);
-        container.appendChild(rightColumn);
-    })
-    .catch(error => {
-        console.error('Error fetching items:', error);
-    });
-
-fetch('/add_item.php', {
-    method: 'POST',
-    body: formData
-})
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
     const addItemBtn = document.getElementById("add-item-btn");
     const modal = document.getElementById("upload-form");
-    const closeModal = modal.querySelector(".close");
+    const closeModal = modal?.querySelector(".close");
 
-    // Show modal when "Add Item" is clicked
-    addItemBtn.addEventListener("click", (event) => {
-        event.preventDefault();
-        modal.style.display = "flex"; // Change from "block" to "flex" for centering
+    addItemBtn?.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.style.display = "flex";
     });
 
-    // Hide modal when close button is clicked
-    closeModal.addEventListener("click", () => {
+    closeModal?.addEventListener("click", () => {
         modal.style.display = "none";
     });
 
-    // Close modal when clicking outside of the form
-    window.addEventListener("click", (event) => {
-        if (event.target === modal) {
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
             modal.style.display = "none";
         }
     });
-});
 
+    const itemForm = document.getElementById("item-form");
+    if (itemForm) {
+        itemForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const formData = new FormData(itemForm);
 
-
-// Get the modal and the button to open it
-const modal = document.getElementById("upload-form");
-const btn = document.getElementById("add-item-btn");
-const span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the "Add item" button, open the modal
-btn.onclick = function () {
-    modal.style.display = "block";
-};
-
-// When the user clicks on the close button, close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-};
-
-// When the user clicks anywhere outside the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
-
-// Handle form submission
-document.getElementById("item-form").onsubmit = function (event) {
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.append("name", document.getElementById("item-name").value);
-    formData.append("image", document.getElementById("item-image").files[0]);
-    formData.append("category", document.getElementById("item-category").value);
-    formData.append("sub_category", document.getElementById("item-sub-category").value);
-    formData.append("color", document.getElementById("item-color").value);
-    formData.append("times_used", document.getElementById("item-times-used").value);
-    formData.append("cost", document.getElementById("item-cost").value);
-
-    fetch('/add-item', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => {
-            if (response.ok) {
-                alert("Item added successfully!");
-                modal.style.display = "none"; // Close modal after submission
-                // You can also refresh the items list or perform other UI updates here
-            } else {
-                alert("Error adding item");
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            alert("Error adding item");
+            fetch('../backend/add_item.php', {
+                method: 'POST',
+                body: formData,
+                credentials: 'include'
+            })
+            .then(res => res.text())
+            .then(text => {
+                try {
+                    const data = JSON.parse(text);
+                    if (data.success) {
+                        alert(data.message);
+                        modal.style.display = "none";
+                        loadItems(); // Refresh item list
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+                } catch (err) {
+                    console.error("JSON parse error:", err, "\nResponse was:", text);
+                    alert("Error adding item.");
+                }
+            })
+            .catch(err => {
+                console.error("Submit error:", err);
+                alert("Error adding item.");
+            });
         });
-};
-
-
-
-
-function handleSelection() {
-    var selection = document.getElementById("footerDropdown").value;
-
-    if (selection === "addItem") {
-        // Redirect to the page to add an item (or trigger a modal, etc.)
-        window.location.href = "add-item.html";  // Change this to your actual URL for adding an item
-    } else if (selection === "createOutfit") {
-        // Redirect to the page to create an outfit
-        window.location.href = "create-outfit.html";  // Change this to your actual URL for creating an outfit
-    } else if (selection === "createCollection") {
-        // Redirect to the page to create a collection
-        window.location.href = "create-collection.html";  // Change this to your actual URL for creating a collection
     }
-}
+
+    let outfitsLoaded = false;
+    document.querySelectorAll(".tablinks").forEach(btn => {
+        btn.addEventListener("click", function (e) {
+            const target = this.dataset.tabTarget;
+
+            if (target === "Outfits" && !outfitsLoaded) {
+                loadOutfits();
+                outfitsLoaded = true;
+            }
+        });
+    });
+
+    function loadItems() {
+        fetch('../backend/get_items.php', { credentials: 'include' })
+            .then(res => res.json())
+            .then(data => {
+                console.log("Items response:", data);
+
+                const container = document.getElementById("items-container");
+                if (!container) return;
+
+                container.innerHTML = '';
+
+                if (data.success && Array.isArray(data.items) && data.items.length > 0) {
+                    const left = document.createElement("div");
+                    const right = document.createElement("div");
+                    left.className = right.className = "item-column";
+
+                    data.items.forEach((item, i) => {
+                        const html = `
+                            <div class="item">
+                                <img src="${item.image_url}" alt="${item.name}" />
+                                <p>${item.name}</p>
+                            </div>`;
+                        (i % 2 === 0 ? left : right).innerHTML += html;
+                    });
+
+                    container.appendChild(left);
+                    container.appendChild(right);
+                } else {
+                    container.textContent = "No items found.";
+                }
+            })
+            .catch(err => {
+                console.error("Item fetch error:", err);
+            });
+    }
+
+    // 👗 Load outfits
+    function loadOutfits() {
+        fetch('../backend/get_outfits.php', { credentials: 'include' })
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('Outfits');
+                container.innerHTML = ''; // Clear previous
+
+                if (data.success && Array.isArray(data.outfits)) {
+                    if (data.outfits.length === 0) {
+                        container.innerHTML = '<p>No outfits found.</p>';
+                    } else {
+                        data.outfits.forEach(outfit => {
+                            const outfitDiv = document.createElement('div');
+                            outfitDiv.classList.add('outfit');
+
+                            outfitDiv.innerHTML = `
+                                <h4>${outfit.name}</h4>
+                                <p>Created at: ${outfit.created_at}</p>
+                                <div class="outfit-images">
+                                    ${outfit.top_url ? `<img src="${outfit.top_url}" alt="Top">` : ''}
+                                    ${outfit.bottom_url ? `<img src="${outfit.bottom_url}" alt="Bottom">` : ''}
+                                    ${outfit.shoes_url ? `<img src="${outfit.shoes_url}" alt="Shoes">` : ''}
+                                </div>
+                            `;
+
+                            container.appendChild(outfitDiv);
+                        });
+                    }
+                } else {
+                    container.innerHTML = '<p>Error loading outfits.</p>';
+                    console.error('Failed to load outfits:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+    }
+
+    loadItems();
+});
